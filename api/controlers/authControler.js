@@ -14,7 +14,13 @@ const generateAccessToken = (id, role) => {
 class AuthControler {
     async registerAndVerify(req, res) {
         try {
-            const {mail, phone, password, code} = req.body;
+            const {mail, phone, password} = req.body;
+            // Проверка на фото
+            if (!req.files || req.files.length === 0) {
+                const filePaths = false;
+              }else{
+                const filePaths = req.files.map(file => file.path);
+              }
 
             if (mail && phone && password) {
                 // Проверьте, существует ли пользователь с такой почтой или телефоном

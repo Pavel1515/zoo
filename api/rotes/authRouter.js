@@ -1,6 +1,6 @@
-const express = require("express")
+const express = require("express");
 const authRouter = express.Router();
-const authControler = require('../controlers/authControler')
+const authControler = require('../controlers/authControler');
 
 // Пути
 authRouter.post('/',authControler.authentication);
